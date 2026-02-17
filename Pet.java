@@ -1,38 +1,50 @@
-public class Pet
-{
-//private data fields
+public class Pet{
 
     private String name;
-    //public Constructor(s)
+    private String type;
+    private int age;
 
-    public Pet(){
-        this.setName("");
+    //constructor
+    public Pet(String type, String name, int age){
+        this.name = name;
+        this.type = type;
+        this.age = age;
     }
-    //public set or mutator method for every private data field  
+    //setter method for setting the name of the pet
     public void setName(String newName){
         this.name = newName;
     }
-    //public get or accessor method for every private data field
     public String getName(){
         return this.name;
     }
-    //public toString method that prints out all of the object state
-    public String toString(){
-        String output = "Pet Information:\nName: " + this.name;
-        return output;
+    public void setType(String newType){
+        this.type = newType;
+    }
+    public String getType(){
+        return this.type;
+    }
+    public void setAge(int newAge){
+        this.age = newAge;
+    }
+    public int getAge(){
+        return this.age;
     }
 
+    public String speak(){
+        if(type.equalsIgnoreCase("dog")){
+            return "Woof!";
+        } else if(type.equalsIgnoreCase("cat")){
+            return "Meow!";
+        } else if (type.equalsIgnoreCase("animal")){
+            return "Yowl";
+        } else {
+            return "Unknown Sound";
+        }
+    }
 
-    // main
-
-    public static void main(String[] args){
-        //create an object of the class and test all methods
-        Pet pet1 = new Pet();
-        pet1.setName("Pet Name");
-        System.out.println(pet1);
-
-        Pet SecondPet = new Pet();
-        SecondPet.setName("Bolt");
-        System.out.println(SecondPet);
+    //toString method
+    public String toString(){
+        String output = "Pet Information: " + "\n" + "Type: " + this.type + "\n" + "Name: " + this.name + "\n" + "Sound: " + speak() + "\n" + "Age: " + this.age;
+        return output;
     }
 }
