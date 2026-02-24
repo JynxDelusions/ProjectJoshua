@@ -1,15 +1,37 @@
+//Breion Joshua
+//February 28, 2024
 public class Tests {
-    public static void main(String[] args) {
 
-        double Uno = 81.8;
-        double Dos = 92.9;
-        double Tres = 77.3;
-        double Promedio = (Uno + Dos + Tres) / 3;
+    //Storing values
+    private double average;
+    private int number;
+    private double total;
 
-        System.out.println("Test score 1 is: " + Uno);
-        System.out.println("Test score 2 is: " + Dos);
-        System.out.println("Test score 3 is: " + Tres);
-        System.out.println("Average test score is: " + Promedio);
+    //Constructor
+    public Tests() {
+        average = 0;
+        number = 0;
+        total = 0;
     }
 
+    //Adds a test score to the total and increases the number of tests
+    public void addScore(double score) {
+        total += score;
+        number++;
+    }
+    //Prevents division by zero and calculates the average
+    public void getAverage() {
+        if (number > 0){
+            average = total / number;
+        } else {
+            average = 0;
+        }
+    }
+    //toString method to display the average
+    public String toString() {
+        if (number == 0) {
+            return "No test scores entered.";
+        }
+    return "The average of the " + number + " test scores is: " + String.format("%.2f", average);
+    }
 }
